@@ -1,0 +1,18 @@
+{
+  "CUSTOMER": "5547785214556987452",
+  "PANEL_ID": "Node 01",
+  "DEVICE_ID": "NET-001",
+  "DEVICE_TYPE": "Network Interface",
+  "DEVICE_LOCATION": "CONTROL RM",
+  "STATUS": 5,
+  "SAFER_ID": {
+    "version": "0.1.0",
+    "unique_id": "823e4567-e89b-12d3-a456-426614174000"
+  },
+  "OPTIONAL": {
+    "SYSTEM_CATEGORY": "Status",
+    "CONDITION": "Heartbeat",
+    "DATE": "2026-02-20",
+    "TIME": "16:05"
+  }
+}

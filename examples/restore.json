@@ -1,0 +1,22 @@
+{
+  "CUSTOMER": "5547785214556987452",
+  "PANEL_ID": "Node 01",
+  "DEVICE_ID": "22-011",
+  "DEVICE_TYPE": "Smoke Detector",
+  "DEVICE_LOCATION": "2FL CONF. RM",
+  "STATUS": 3,
+  "SAFER_ID": {
+    "version": "0.1.0",
+    "unique_id": "723e4567-e89b-12d3-a456-426614174000"
+  },
+  "OPTIONAL": {
+    "SYSTEM_CATEGORY": "Fire Alarm",
+    "CONDITION": "Smoke Cleared",
+    "DATE": "2026-02-20",
+    "TIME": "16:02",
+    "CONTACT_ID": {
+      "version": "SIA DC-05-1999.09",
+      "code": "1113181111220118"
+    }
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/safer-event.schema.json",
+  "title": "SAFER Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "CUSTOMER",
+    "PANEL_ID",
+    "DEVICE_ID",
+    "DEVICE_TYPE",
+    "DEVICE_LOCATION",
+    "STATUS",
+    "SAFER_ID"
+  ],
+  "properties": {
+    "CUSTOMER": {
+      "type": "string",
+      "minLength": 1
+    },
+    "PANEL_ID": {
+      "type": "string",
+      "minLength": 1
+    },
+    "DEVICE_ID": {
+      "type": "string",
+      "minLength": 1
+    },
+    "DEVICE_TYPE": {
+      "type": "string",
+      "minLength": 1
+    },
+    "DEVICE_LOCATION": {
+      "type": "string",
+      "minLength": 1
+    },
+    "STATUS": {
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "SAFER_ID": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "unique_id"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "SAFER payload format version (recommended SemVer)."
+        },
+        "unique_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Globally unique message identifier (recommended UUID).",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        }
+      }
+    },
+    "OPTIONAL": {
+      "type": "object",
+      "description": "Optional extended context. Unknown keys allowed for extensibility.",
+      "additionalProperties": true,
+      "properties": {
+        "OWNER_LOCATION": {
+          "type": "string"
+        },
+        "LOCATION": {
+          "type": "string"
+        },
+        "CONDITION": {
+          "type": "string"
+        },
+        "SYSTEM_CATEGORY": {
+          "type": "string"
+        },
+        "DATE": {
+          "type": "string",
+          "format": "date"
+        },
+        "TIME": {
+          "type": "string",
+          "pattern": "^[0-2][0-9]:[0-5][0-9](:[0-5][0-9])?$"
+        },
+        "PANEL_GPS": {
+          "$ref": "#/$defs/coords"
+        },
+        "GPS_COORDINATES": {
+          "$ref": "#/$defs/coords"
+        },
+        "ZONE": {
+          "$ref": "#/$defs/namedLink"
+        },
+        "GROUP": {
+          "$ref": "#/$defs/namedLink"
+        },
+        "CONTACT_ID": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "version",
+            "code"
+          ],
+          "properties": {
+            "version": {
+              "type": "string"
+            },
+            "code": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "coords": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "latitude": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            {
+              "type": "string",
+              "pattern": "^-?\\d+(\\.\\d+)?$"
+            }
+          ]
+        },
+        "longitude": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            },
+            {
+              "type": "string",
+              "pattern": "^-?\\d+(\\.\\d+)?$"
+            }
+          ]
+        },
+        "altitude": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "namedLink": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+  }
+}

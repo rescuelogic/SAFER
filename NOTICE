@@ -1,0 +1,10 @@
+SAFER Protocol Specification
+---------------------------
+
+Copyright (c) 2026 The SAFER Protocol Contributors
+
+This repository contains an open specification for SAFER (Security And Fire Emergency Reports),
+including JSON Schema and example payloads.
+
+If you are publishing this as a re-licensed or adapted work, ensure you have the necessary rights
+to release any prior materials under Apache-2.0.

@@ -1,0 +1,44 @@
+{
+  "CUSTOMER": "7723458762558899453",
+  "PANEL_ID": "Node 02",
+  "DEVICE_ID": "45-030",
+  "DEVICE_TYPE": "Intrusion Detector",
+  "DEVICE_LOCATION": "Main Entrance",
+  "STATUS": 1,
+  "SAFER_ID": {
+    "version": "0.1.0",
+    "unique_id": "423e4567-e89b-12d3-a456-426614174000"
+  },
+  "OPTIONAL": {
+    "PANEL_GPS": {
+      "latitude": 40.7128,
+      "longitude": -74.006,
+      "altitude": "10m"
+    },
+    "LOCATION": "Front Lobby",
+    "CONDITION": "Unauthorized Entry",
+    "OWNER_LOCATION": "Main Building - Ground Floor",
+    "DATE": "2026-02-20",
+    "TIME": "22:30",
+    "SYSTEM_CATEGORY": "Burglary",
+    "ZONE": {
+      "name": "Zone A1",
+      "description": "Entry and front desk area",
+      "url": "https://example.com/zones/a1"
+    },
+    "GROUP": {
+      "name": "Downtown Facility",
+      "description": "All entry and exit points",
+      "url": "https://example.com/sites/downtown"
+    },
+    "GPS_COORDINATES": {
+      "latitude": 40.7128,
+      "longitude": -74.006,
+      "altitude": "10m"
+    },
+    "CONTACT_ID": {
+      "version": "SIA DC-05-1999.09",
+      "code": "1301181301450308"
+    }
+  }
+}

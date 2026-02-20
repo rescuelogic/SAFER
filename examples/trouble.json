@@ -1,0 +1,18 @@
+{
+  "CUSTOMER": "5547785214556987452",
+  "PANEL_ID": "Node 01",
+  "DEVICE_ID": "PS-001",
+  "DEVICE_TYPE": "Power Supply",
+  "DEVICE_LOCATION": "ELEC RM 2FL",
+  "STATUS": 4,
+  "SAFER_ID": {
+    "version": "0.1.0",
+    "unique_id": "523e4567-e89b-12d3-a456-426614174000"
+  },
+  "OPTIONAL": {
+    "SYSTEM_CATEGORY": "Fire Alarm",
+    "CONDITION": "AC Fail",
+    "DATE": "2026-02-20",
+    "TIME": "03:12"
+  }
+}

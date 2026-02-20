@@ -1,0 +1,44 @@
+{
+  "CUSTOMER": "5547785214556987452",
+  "PANEL_ID": "Node 01",
+  "DEVICE_ID": "22-011",
+  "DEVICE_TYPE": "Smoke Detector",
+  "DEVICE_LOCATION": "2FL CONF. RM",
+  "STATUS": 1,
+  "SAFER_ID": {
+    "version": "0.1.0",
+    "unique_id": "323e4567-e89b-12d3-a456-426614174000"
+  },
+  "OPTIONAL": {
+    "PANEL_GPS": {
+      "latitude": 37.7749,
+      "longitude": -122.4194,
+      "altitude": "15m"
+    },
+    "LOCATION": "2nd Floor",
+    "CONDITION": "Smoke Detected",
+    "OWNER_LOCATION": "Conference Room",
+    "DATE": "2026-02-20",
+    "TIME": "15:45",
+    "SYSTEM_CATEGORY": "Fire Alarm",
+    "ZONE": {
+      "name": "Zone B2",
+      "description": "Main office areas",
+      "url": "https://example.com/zones/b2"
+    },
+    "GROUP": {
+      "name": "Tech Park Campus",
+      "description": "Building A to Building F",
+      "url": "https://example.com/sites/tech-park"
+    },
+    "GPS_COORDINATES": {
+      "latitude": 37.7749,
+      "longitude": -122.4194,
+      "altitude": "15m"
+    },
+    "CONTACT_ID": {
+      "version": "SIA DC-05-1999.09",
+      "code": "1111181111220118"
+    }
+  }
+}
