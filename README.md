@@ -1,164 +1,82 @@
-# SAFER Protocol (Open Standard)
+# SAFER Protocol
+Version 1.0 - February 2026  
+Open specification published under the Apache License 2.0  
+[Access the full specification document](https://github.com/rescuelogic/SAFER/blob/main/SAFER%20v1.0.pdf)
 
-**S**ecurity **A**nd **F**ire **E**mergency **R**eports (**SAFER**) is a lightweight, JSON-based message format for reporting life-safety and security events (fire alarm, supervisory, trouble, intrusion, medical/personal emergency, etc.) over modern IP networks.
+## Overview
 
-This repository packages the **SAFER message format** as an open specification, plus **JSON examples** and a **JSON Schema** for validation.
+The **S**ecurity **A**nd **F**ire **E**mergency **R**eports (**SAFER**) Protocol defines a structured, JSON-based message format for reporting life-safety and security events across modern IP networks.
 
-> **Scope note:** SAFER standardizes the *event payload* (the JSON object). Transport (TCP, HTTP, MQTT, syslog, file/print port, etc.), local code compliance, and UL/NFPA listing requirements are out of scope. Implementers are responsible for meeting all applicable safety and regulatory requirements.
+The objective of SAFER is to provide a clear, extensible, and interoperable structure for representing alarm events in contemporary networked environments.
 
-## Design goals
+## Scope
 
-- **Human- and machine-readable** (JSON key/value pairs).
-- **Extensible**: a small required core with an optional section for richer context.
-- **Precise identification** of customer/site, panel/node, and device/point.
-- **Backward compatibility** with legacy formats via optional Contact ID fields.
-- **Interoperable** across vendors and software stacks.
+SAFER defines:
+-	Required and optional JSON fields for event representation
+-	Version identification within each message
+-	A structure supporting extensibility without breaking compatibility
 
-## Repository layout
+SAFER does not define:
+-	Transmission methods (TCP, UDP, MQTT, etc.)
+-	Supervision models or network performance requirements
+-	Product listing or certification requirements
+-	Compliance authority
 
-- `README.md` – this specification overview
-- `schema/safer-event.schema.json` – JSON Schema (Draft 2020-12)
-- `examples/` – sample events (minimal + expanded)
+SAFER standardizes the *event payload only*. It does not define transport mechanisms, pathway supervision, listing requirements, or regulatory compliance criteria. Those remain governed by applicable codes, standards, and product certifications.
 
-## Quick start (minimal event)
+Implementers are responsible for ensuring conformance with applicable standards and regulatory frameworks.
 
-A valid SAFER event MUST include the required fields shown below:
+## Design Principles
 
-```json
+The SAFER Protocol is guided by the following principles:
+-	Structured Representation – Human- and machine-readable JSON format
+-	Clear Identification – Separation of customer, panel, device, and condition
+-	Extensibility – Optional fields may be added without invalidating existing implementations
+-	Backward Reference Capability – Legacy formats (e.g., Contact ID) may be embedded as optional reference fields
+-	Version Control – Each message includes a version identifier to support compatibility management
+
+Example Event Structure:
+```
 {
-  "CUSTOMER": "5547785214556987452",
+  "CUSTOMER": "1234",
   "PANEL_ID": "Node 01",
-  "DEVICE_ID": "22-011",
+  "DEVICE_ID": "01-015",
   "DEVICE_TYPE": "Smoke Detector",
-  "DEVICE_LOCATION": "2FL CONF. RM",
+  "DEVICE_LOCATION": "2FL CONF RM",
   "STATUS": 1,
   "SAFER_ID": {
-    "version": "0.1.0",
-    "unique_id": "223e4567-e89b-12d3-a456-426614174000"
+    "version": "1.0",
+    "unique_id": "123e4567-e89b-12d3-a456-426614174000"
   }
 }
 ```
 
-## Message envelope
+See the [full specification document](https://github.com/rescuelogic/SAFER/blob/main/SAFER%20v1.0.pdf) for required fields, optional structures, and implementation guidance.
 
-A SAFER event is a single JSON object with these **required** top-level fields:
+## Governance and Stewardship
 
-| Field | Type | Required | Description |
-|---|---:|:---:|---|
-| `CUSTOMER` | string | ✅ | Customer/site identifier. Use a string (may exceed integer ranges). |
-| `PANEL_ID` | string | ✅ | Panel or node identifier (e.g., `Node 01`). |
-| `DEVICE_ID` | string | ✅ | Electrical/logical point address (e.g., `N54L32D001`, `01-015`, `22-011`). |
-| `DEVICE_TYPE` | string | ✅ | Human-readable device type (e.g., `Smoke Detector`). |
-| `DEVICE_LOCATION` | string | ✅ | Installer/programmed location text as shown on-site/panel. |
-| `STATUS` | integer | ✅ | Event status code (see below). |
-| `SAFER_ID` | object | ✅ | Message identity + versioning (`version`, `unique_id`). |
-| `OPTIONAL` | object | ⛔ | Optional extended context (recommended when available). |
+SAFER is published as an open specification.
 
-### `STATUS` codes
+Future revisions may incorporate implementation feedback, clarifications, and interoperability considerations. Governance may evolve through an open working group, collaborative industry participation, or standards development engagement.
 
-`STATUS` is an integer with the following meanings:
+No single entity controls adoption.
 
-| Code | Meaning |
-|---:|---|
-| `1` | Active / alarm condition present |
-| `2` | Supervisory |
-| `3` | Restore (return to normal) |
-| `4` | Trouble / fault |
-| `5` | Status only (informational) |
-| `6` | Previously reported |
+Implementers are encouraged to reference version identifiers to ensure compatibility with the applicable specification revision.
 
-### `SAFER_ID`
+## Licensing
+Copyright © 2024 Dan Horon  
+U.S. Copyright Registration No. TXu 2-426-289  
+Effective March 7, 2024  
+Licensed under the Apache License, Version 2.0.  
+Use of this specification is subject to the terms of the Apache 2.0 License.
 
-`SAFER_ID` MUST contain:
+## Contact and Feedback
+Questions or implementation feedback regarding this specification may be directed to:
 
-- `version` (string): the SAFER message format version, recommended **SemVer** (e.g., `0.1.0`).
-- `unique_id` (string): a globally unique identifier for the message, recommended UUID (RFC 4122).
+Dan Horon
+dan@rescuelogic.com
 
-Example:
+Jeff Horon
+jeff@rescuelogic.com
 
-```json
-"SAFER_ID": {
-  "version": "0.1.0",
-  "unique_id": "223e4567-e89b-12d3-a456-426614174000"
-}
-```
-
-## OPTIONAL section
-
-`OPTIONAL` is a JSON object for richer context. It MAY contain any of the following keys, and it MAY contain additional vendor-/site-specific keys.
-
-Recommended common keys:
-
-| Field | Type | Description |
-|---|---|---|
-| `OWNER_LOCATION` | string | More human-friendly location (e.g., “Independent Living Unit 7”). |
-| `LOCATION` | string | Coarse location (floor/area). |
-| `CONDITION` | string | Condition text (e.g., “Smoke Detected”, “Unauthorized Entry”). |
-| `SYSTEM_CATEGORY` | string | Category (Fire Alarm, Burglary, Medical, Personal Emergency, etc.). |
-| `DATE` | string (YYYY-MM-DD) | Local date of event. |
-| `TIME` | string (HH:MM[:SS]) | Local time of event (24-hour recommended). |
-| `PANEL_GPS` | object | GPS at panel (see “Coordinates”). |
-| `GPS_COORDINATES` | object | GPS at device/incident location (see “Coordinates”). |
-| `ZONE` | object | `{ name, description?, url? }` |
-| `GROUP` | object | `{ name, description?, url? }` |
-| `CONTACT_ID` | object | Legacy mapping `{ version, code }` |
-
-### Coordinates objects
-
-When used, `PANEL_GPS` and `GPS_COORDINATES` SHOULD be objects shaped like:
-
-```json
-{
-  "latitude": 37.7749,
-  "longitude": -122.4194,
-  "altitude": "15m"
-}
-```
-
-- `latitude` / `longitude` SHOULD be numbers when possible.
-- `altitude` MAY be a number (meters) or a string with a unit (e.g., `"15m"`).
-
-## Transport framing recommendations (non-normative)
-
-Because SAFER standardizes payload only, implementations need a framing rule. Common options:
-
-- **NDJSON** (newline-delimited JSON): one JSON object per line.
-- HTTP webhook: POST a single JSON object in the request body.
-- MQTT: publish the JSON object as message payload.
-- TCP stream: prefix with length or delimit with `\n` (avoid ambiguity).
-
-## Validation
-
-Use `schema/safer-event.schema.json` to validate events. The schema enforces the required core and allows additional/unknown keys for forward compatibility.
-
-## Examples
-
-See `examples/`:
-
-- `minimal-fire-alarm.json`
-- `full-fire-alarm.json`
-- `burglary.json`
-- `trouble.json`
-- `supervisory.json`
-- `restore.json`
-- `status-only.json`
-
-## Security considerations
-
-Life-safety and security signals are sensitive. Implementers SHOULD consider:
-
-- encryption in transit (e.g., TLS),
-- authentication/authorization for publishers and subscribers,
-- network segmentation for life-safety systems,
-- input validation and schema checks,
-- careful handling of personally identifying information (PII).
-
-## Governance and versioning
-
-- The SAFER payload format uses `SAFER_ID.version`.
-- Backward-compatible changes: increment **MINOR** or **PATCH**.
-- Backward-incompatible changes: increment **MAJOR** and provide migration notes.
-
-## License
-
-This repository is licensed under the Apache License 2.0. See `LICENSE`.
+Publication of this document does not imply endorsement by NFPA, UL, or any standards development organization.
