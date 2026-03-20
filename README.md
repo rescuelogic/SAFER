@@ -1,7 +1,10 @@
 # SAFER Protocol
 Version 1.0 - February 2026  
 Open specification published under the Apache License 2.0  
+
 [Access the full specification document](https://github.com/rescuelogic/SAFER/blob/main/SAFER%20v1.0.pdf)
+
+[Read the FAQ](https://github.com/rescuelogic/SAFER/blob/main/SAFER%20FAQ.pdf)
 
 ## Overview
 
@@ -70,7 +73,10 @@ Effective March 7, 2024
 Licensed under the Apache License, Version 2.0.  
 Use of this specification is subject to the terms of the Apache 2.0 License.
 
-## Contact and Feedback
+## Questions, Contact, and Feedback
+
+[Read the FAQ](https://github.com/rescuelogic/SAFER/blob/main/SAFER%20FAQ.pdf)  
+
 Questions or implementation feedback regarding this specification may be directed to:
 
 Dan Horon
