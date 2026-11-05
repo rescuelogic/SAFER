@@ -1,0 +1,17 @@
+{
+  "CUSTOMER": "1234",
+  "PANEL_ID": "Node 01",
+  "DEVICE_ID": "L1M083",
+  "DEVICE_TYPE": "Monitor Module",
+  "DEVICE_LOCATION": "Riser Room",
+  "STATUS": 4,
+  "SAFER_ID": {
+    "version": "1.1",
+    "unique_id": "423e4567-e89b-42d3-a456-426614174000"
+  },
+  "OPTIONAL": {
+    "CONDITION": "Open Circuit",
+    "SOURCE_FORMAT": "Panel printer port text (RS232)",
+    "SOURCE_MESSAGE": "NODE 01 L1M083 TROUBLE OPEN CIRCUIT"
+  }
+}

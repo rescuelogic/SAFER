@@ -1,0 +1,12 @@
+{
+  "CUSTOMER": "1234",
+  "PANEL_ID": "Node 01",
+  "DEVICE_ID": "L1M082",
+  "DEVICE_TYPE": "Valve Supervisory Switch",
+  "DEVICE_LOCATION": "Riser Room",
+  "STATUS": 2,
+  "SAFER_ID": {
+    "version": "1.1",
+    "unique_id": "323e4567-e89b-12d3-a456-426614174000"
+  }
+}

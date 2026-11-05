@@ -1,0 +1,21 @@
+{
+  "CUSTOMER": "1234",
+  "PANEL_ID": "Node 01",
+  "DEVICE_ID": "L1S067",
+  "DEVICE_TYPE": "Smoke Detector",
+  "DEVICE_LOCATION": "Classroom 4 West",
+  "STATUS": 1,
+  "SAFER_ID": {
+    "version": "1.1",
+    "unique_id": "223e4567-e89b-12d3-a456-426614174000"
+  },
+  "OPTIONAL": {
+    "SYSTEM_CATEGORY": "Fire Alarm System",
+    "CONDITION": "Smoke Detected",
+    "LOCATION": "First Floor",
+    "OWNER_LOCATION": "Classroom 4 West",
+    "EVENT_TIME": "2026-10-07T10:14:00-04:00",
+    "SOURCE_FORMAT": "Panel printer text",
+    "SOURCE_MESSAGE": "N01-L1:067 ALARM ON PHOTO CLASSROOM 4 WEST"
+  }
+}

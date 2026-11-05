@@ -1,0 +1,19 @@
+{
+  "CUSTOMER": "5547785214556987452",
+  "PANEL_ID": "Node 01",
+  "DEVICE_ID": "SV-014",
+  "DEVICE_TYPE": "Valve Tamper Switch",
+  "DEVICE_LOCATION": "RISER RM",
+  "STATUS": 6,
+  "SAFER_ID": {
+    "version": "1.1",
+    "unique_id": "923e4567-e89b-12d3-a456-426614174000"
+  },
+  "OPTIONAL": {
+    "SYSTEM_CATEGORY": "Fire Alarm",
+    "CONDITION": "Valve Partially Closed",
+    "DATE": "2026-02-20",
+    "TIME": "10:10",
+    "EVENT_TIME": "2026-02-20T10:10:00-05:00"
+  }
+}

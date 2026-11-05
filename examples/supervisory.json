@@ -6,7 +6,7 @@
   "DEVICE_LOCATION": "RISER RM",
   "STATUS": 2,
   "SAFER_ID": {
-    "version": "0.1.0",
+    "version": "1.1",
     "unique_id": "623e4567-e89b-12d3-a456-426614174000"
   },
   "OPTIONAL": {
