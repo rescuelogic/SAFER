@@ -66,13 +66,6 @@ The [JSON Schema](schema/safer-event.schema.json) implements the minimal structu
 
 The specification governs field meaning and optional-field structure. Schema validation alone does not check semantic consistency, physical conditions, correct source interpretation, or identifier uniqueness across reports. Applications may apply documented additional checks.
 
-Run the repository checks with Python 3.10 or newer:
-
-```sh
-python -m pip install -r requirements-dev.txt
-python -m unittest discover -s tests -v
-```
-
 See [CHANGELOG.md](CHANGELOG.md) for the changes from the previous repository schema, including removal of UUID-only and closed-object restrictions.
 
 ## How to contribute

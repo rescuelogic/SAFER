@@ -36,14 +36,7 @@ customer-identifying information from examples.
 
 By contributing, you agree that your contributions will be licensed under the Apache License 2.0.
 
-## Running the checks
-
-With Python 3.10 or newer:
-
-```sh
-python -m pip install -r requirements-dev.txt
-python -m unittest discover -s tests -v
-```
+## Validation guidance
 
 The schema follows the minimal structural profile in Protocol v1.1 Appendix A.
 Keep the schema, examples, and specification consistent. Document any additional

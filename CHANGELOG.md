@@ -8,7 +8,6 @@
 - Align the JSON Schema with Protocol v1.1 Appendix A: require version `"1.1"`, accept any nonempty report identifier, and allow extension properties. The five descriptive fields require strings; the minimal schema does not impose a nonempty constraint on them.
 - Replace the former optional-field validation restrictions with Appendix A's minimal object check. The specification still governs optional-field meaning and structure.
 - Update existing example version identifiers from `"0.1.0"` to `"1.1"`, make the minimal example contain only required fields, add the four specification examples, and cover STATUS 6 (Previously reported).
-- Add validation tests for the schema, examples, required fields, version and identifier rules, all STATUS values, malformed JSON, and extensions.
 
 The seven-field structure and six STATUS meanings remain unchanged. Earlier payloads
 must declare their actual version; the v1.1 schema intentionally rejects other

@@ -22,12 +22,12 @@ Start with the [README](README.md), [Protocol v1.1](SAFER_Protocol_v1_1.pdf), an
 ## Suggested reading paths
 
 - **Understanding the idea:** What Does Everybody Know? → What Is an Alarm Event? → The Grammar of a Fire Alarm System.
-- **Implementing SAFER:** Protocol v1.1 → FAQ v1.1 → [schema](schema/safer-event.schema.json) → [examples](examples/README.md) → [validation tests](tests/test_validation.py).
+- **Implementing SAFER:** Protocol v1.1 → FAQ v1.1 → [schema](schema/safer-event.schema.json) → [examples](examples/README.md).
 - **Exploring architecture and research:** Information Infrastructure for Life Safety → Minimal Event Information Model, shorter edition → full technical paper.
 - **Understanding operational experience:** The Ordered Fire Alarm System → One Architecture. Many Manufacturers. Decades of Continuity.
 
 ## Collection layout
 
-Publication PDFs are at the repository root. The `schema/`, `examples/`, and `tests/` directories hold implementation and validation materials. Earlier [v1.0](SAFER%20v1.0.pdf) and [FAQ](SAFER%20FAQ.pdf) publications retain their original URLs for historical reference.
+Publication PDFs are at the repository root. The `schema/` and `examples/` directories hold the schema and example payloads. Earlier [v1.0](SAFER%20v1.0.pdf) and [FAQ](SAFER%20FAQ.pdf) publications retain their original URLs for historical reference.
 
 Some publications also mention SAFER Common Vocabulary, Fire Alarm Panels Speak the Same Language, End-of-Line vs. End-to-End, or demonstration material. Those items are not included in this collection. The published v1.1 specification supplies the definitions needed for implementation.
